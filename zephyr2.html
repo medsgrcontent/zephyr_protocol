@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zephyr Protocol Slideshow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#000; }
+    .slide { position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-col items-center justify-center; color:#fff; opacity:0; }
+    .active { opacity:1; }
+    .fade-in { animation:fadeIn 1s forwards; }
+    .slide-up { animation:slideUp 1s forwards; }
+    .fly-in { animation:flyIn 0.5s forwards; }
+    .wipe { overflow:hidden; }
+    .wipe .half { position:absolute; top:0; width:50%; height:100%; background-size:cover; }
+    .wipe .left { left:0; transform:translateX(-100%); animation:wipeLeft 1s forwards; }
+    .wipe .right { right:0; transform:translateX(100%); animation:wipeRight 1s forwards; }
+    @keyframes fadeIn { to { opacity:1 } }
+    @keyframes slideUp { from { transform: translateY(100%) } to { transform: translateY(0) } }
+    @keyframes flyIn { from { transform: translateX(-100%) } to { transform: translateX(0) } }
+    @keyframes wipeLeft { to { transform:translateX(0) } }
+    @keyframes wipeRight { to { transform:translateX(0) } }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1 -->
+  <div id="slide1" class="slide bg-black flex flex-col items-center justify-center">
+    <img src="ZP-logo-horizontal-4-dark.png" class="fade-in" style="width:60%; max-width:600px;" />
+    <h2 id="tag1" class="text-4xl mt-4 slide-up">Private Digital Money</h2>
+    <p class="text-sm mt-2 opacity-80">zephyrprotocol.com • @zephyr_org</p>
+  </div>
+
+  <!-- Slide 2 -->
+  <div id="slide2" class="slide flex flex-col items-start px-16">
+    <h2 class="text-5xl mb-6">Privacy vs. Stability</h2>
+    <ul class="text-2xl space-y-4">
+      <li class="fly-in" style="animation-delay:0.2s">Traditional stablecoins sacrifice privacy</li>
+      <li class="fly-in" style="animation-delay:0.4s">Privacy coins suffer from volatility</li>
+    </ul>
+  </div>
+
+  <!-- Slide 3 -->
+  <div id="slide3" class="slide wipe">
+    <div class="half left" style="background-image:url('monero-bg.jpg');"></div>
+    <div class="half right" style="background-image:url('djed-bg.jpg');"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+      <h2 class="text-5xl mb-4">Bridging the Gap</h2>
+      <p class="text-2xl max-w-2xl opacity-90">Zephyr combines Monero’s on-chain privacy with the proven Djed stablecoin mechanics.</p>
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div id="slide4" class="slide flex flex-col items-center justify-center space-y-8">
+    <div class="space-y-2">
+      <h2 class="text-4xl">How It Works: Three-Asset Model</h2>
+      <div id="panels" class="flex space-x-6 mt-6">
+        <div class="opacity-0" id="p1"><strong>ZEPH</strong> – Base token, collateral for the system</div>
+        <div class="opacity-0" id="p2"><strong>ZSD</strong> – USD-pegged private stablecoin, backed by >400%</div>
+        <div class="opacity-0" id="p3"><strong>ZRS</strong> – Reserve shares, earn protocol equity</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div id="slide5" class="slide flex flex-col items-start px-16">
+    <h2 class="text-4xl mb-6">Core Technology</h2>
+    <ul class="text-2xl space-y-4">
+      <li class="flex items-center"><span class="opacity-0 icon" data-delay="0.1s">🔒</span> Built on Monero: ring sigs, stealth addrs, Bulletproofs</li>
+      <li class="flex items-center"><span class="opacity-0 icon" data-delay="0.3s">⚙️</span> Powered by Djed: over-collateralized algorithm, auto mint &amp; burn</li>
+    </ul>
+  </div>
+
+  <!-- Slide 6 -->
+  <div id="slide6" class="slide flex flex-col items-center justify-center">
+    <h2 class="text-4xl mb-6">Milestones &amp; Roadmap</h2>
+    <div class="w-3/4 h-1 bg-gray-600 mb-8 relative">
+      <div class="absolute left-0 top-0 h-full bg-white" id="timeline"></div>
+    </div>
+    <ul class="text-xl space-y-2">
+      <li class="opacity-0 milestone" data-delay="0.5s">May 2023 – Mainnet Launch (ZEPH live)</li>
+      <li class="opacity-0 milestone" data-delay="1s">Q4 2023 – Djed Hard-fork & Oracle V2</li>
+      <li class="opacity-0 milestone" data-delay="1.5s">2024+ – GUI wallets, governance, cross-chain bridges</li>
+    </ul>
+  </div>
+
+  <!-- Slide 7 -->
+  <div id="slide7" class="slide flex flex-col items-center justify-center space-y-6">
+    <h2 class="text-4xl">Join the Ecosystem</h2>
+    <p class="text-2xl">Buy • Stake • Participate</p>
+    <p class="opacity-80">ZEPH/USDT on MEXC, TradeOgre, NonKYC.io</p>
+    <p class="opacity-80">Discord • Telegram • @zephyr_org on X</p>
+  </div>
+
+  <!-- Slide 8 -->
+  <div id="slide8" class="slide flex flex-col items-center justify-center">
+    <img src="ZP-logo-icon-2-dark.png" class="fade-in" style="width:40%; max-width:300px;"/>
+    <h2 class="text-3xl mt-6 slide-up text-center px-4">Experience the first private over-collateralized stablecoin.</h2>
+    <p class="text-sm mt-4 opacity-80">zephyrprotocol.com</p>
+  </div>
+
+<script>
+  const schedule = [
+    { id: 'slide1',  in: 0,    out: 3000 },
+    { id: 'slide2',  in: 3000, out: 7000 },
+    { id: 'slide3',  in: 7000, out:11000 },
+    { id: 'slide4',  in:11000, out:16000 },
+    { id: 'slide5',  in:16000, out:21000 },
+    { id: 'slide6',  in:21000, out:26000 },
+    { id: 'slide7',  in:26000, out:31000 },
+    { id: 'slide8',  in:31000, out:35000 },
+  ];
+
+  function showSlide(id){
+    document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  // panel animations (slide 4)
+  function animatePanels(){
+    ['p1','p2','p3'].forEach((pid,i)=>{
+      setTimeout(()=>{
+        let el = document.getElementById(pid);
+        el.style.animation = 'slideUp 0.8s forwards';
+      }, 500*i + 500);
+    });
+  }
+
+  // core tech icons (slide 5)
+  function animateIcons(){
+    document.querySelectorAll('#slide5 .icon').forEach(ic=>{
+      setTimeout(()=> ic.style.animation = 'fadeIn 0.5s forwards', parseFloat(ic.dataset.delay)*1000);
+    });
+  }
+
+  // timeline (slide 6)
+  function animateTimeline(){
+    let bar = document.getElementById('timeline');
+    bar.style.transition = 'width 2s linear';
+    bar.style.width = '100%';
+    document.querySelectorAll('.milestone').forEach((ms,i)=>{
+      setTimeout(()=> ms.style.animation = 'fadeIn 0.5s forwards', (i+1)*500 + 500);
+    });
+  }
+
+  schedule.forEach(({id,in: tIn,out: tOut})=>{
+    setTimeout(()=> {
+      showSlide(id);
+      if(id==='slide4') animatePanels();
+      if(id==='slide5') animateIcons();
+      if(id==='slide6') animateTimeline();
+    }, tIn);
+  });
+
+  // start
+  showSlide('slide1');
+</script>
+</body>
+</html>
