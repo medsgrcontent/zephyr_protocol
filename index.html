@@ -263,7 +263,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Element references
-            const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const playPauseBtn = document.getElementById('playPauseBtn');
@@ -275,29 +274,38 @@
             let currentSlide = 0;
             let isPlaying = true;
             let slideTimer;
+            const slideCount = document.querySelectorAll('.slide').length;
             const slideDurations = [3000, 4000, 4000, 5000, 5000, 5000, 5000, 4000];
 
             function showSlide(index) {
-                // Remove 'active' class from all slides
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    // Reset animations by cloning and replacing the node
-                    const newSlide = slide.cloneNode(true);
-                    slide.parentNode.replaceChild(newSlide, slide);
-                });
+                // Get all slides currently in the DOM
+                const slides = document.querySelectorAll('.slide');
                 
-                // Get the new set of slides after cloning
-                const newSlides = document.querySelectorAll('.slide');
-                
-                // Add 'active' class to the current slide
-                newSlides[index].classList.add('active');
+                // Hide the currently active slide, if there is one
+                const activeSlide = document.querySelector('.slide.active');
+                if (activeSlide) {
+                    activeSlide.classList.remove('active');
+                }
+
+                // Get the specific slide we want to show
+                const slideToShow = slides[index];
+
+                // To restart animations, we replace the slide node with a clone of itself.
+                // This is a reliable trick to re-trigger CSS animations.
+                const newSlide = slideToShow.cloneNode(true);
+                slideToShow.parentNode.replaceChild(newSlide, slideToShow);
+
+                // Make the new, cloned slide visible. 
+                // The 'active' class controls display and opacity transition.
+                newSlide.classList.add('active');
+
                 currentSlide = index;
 
                 // Update progress bar
-                const progress = ((currentSlide + 1) / newSlides.length) * 100;
+                const progress = ((currentSlide + 1) / slideCount) * 100;
                 progressBarFill.style.width = `${progress}%`;
 
-                // If playing, set timeout for the next slide
+                // If playing, set the timer for the next slide
                 if (isPlaying) {
                     clearTimeout(slideTimer);
                     slideTimer = setTimeout(next, slideDurations[currentSlide]);
@@ -307,7 +315,7 @@
             // Navigation functions
             function next() {
                 let nextIndex = currentSlide + 1;
-                if (nextIndex >= slides.length) {
+                if (nextIndex >= slideCount) {
                     nextIndex = 0; // Loop back to the start
                 }
                 showSlide(nextIndex);
@@ -316,7 +324,7 @@
             function prev() {
                 let prevIndex = currentSlide - 1;
                 if (prevIndex < 0) {
-                    prevIndex = slides.length - 1; // Loop to the end
+                    prevIndex = slideCount - 1; // Loop to the end
                 }
                 showSlide(prevIndex);
             }
@@ -335,7 +343,7 @@
                 }
             }
 
-            // Event listeners
+            // Event listeners for controls
             nextBtn.addEventListener('click', () => {
                 clearTimeout(slideTimer);
                 next();
@@ -348,7 +356,7 @@
             
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
-                if(e.key === 'ArrowRight') {
+                if (e.key === 'ArrowRight') {
                     clearTimeout(slideTimer);
                     next();
                 } else if (e.key === 'ArrowLeft') {
@@ -360,7 +368,7 @@
                 }
             });
 
-            // Initial call
+            // Initial call to show the first slide
             showSlide(0);
         });
     </script>
