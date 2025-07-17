@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zephyr Protocol Ecosystem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .slide {
+            display: none;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide-content {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 15px rgba(74, 222, 128, 0.4));
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white antialiased">
+
+    <div id="presentation-container" class="relative min-h-screen w-full flex flex-col items-center justify-center p-4 overflow-hidden">
+
+        <!-- Slides -->
+        <div id="slides" class="w-full max-w-4xl h-[80vh] md:h-[70vh] flex items-center justify-center">
+
+            <!-- Slide 1: Title / Brand Reveal -->
+            <div class="slide active" data-slide="1">
+                <div class="slide-content text-center p-6 flex flex-col items-center justify-center h-full">
+                    <img src="https://assets-global.website-files.com/6495c2317fe27ed858591a34/6495f548d447435016f7344a_Zephyr-Logo-v1.0.svg" alt="Zephyr Protocol Logo" class="h-24 md:h-32 mb-8 logo-glow" onerror="this.onerror=null;this.src='https://placehold.co/200x200/1a202c/ffffff?text=Zephyr';">
+                    <h1 class="text-4xl md:text-6xl font-bold text-green-400 mb-4">Zephyr Protocol</h1>
+                    <p class="text-lg md:text-xl text-gray-300">The Private, Untraceable Stablecoin</p>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="text-green-400 mt-4 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 2: The Challenge -->
+            <div class="slide" data-slide="2">
+                <div class="slide-content p-6 md:p-12 bg-gray-800 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">The Challenge</h2>
+                    <p class="text-base md:text-lg text-gray-300 mb-6 leading-relaxed">
+                        Existing stablecoins often force users to trade off privacy for stability or rely on centralized collateral, exposing them to surveillance and counterparty risk.
+                    </p>
+                    <p class="text-base md:text-lg text-gray-200 font-medium leading-relaxed">
+                        Zephyr bridges this gap by uniting over‑collateralized algorithmic stability with Monero‑grade confidentiality.
+                    </p>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="block text-right text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 3: Our Solution -->
+            <div class="slide" data-slide="3">
+                <div class="slide-content p-6 md:p-12 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">Our Solution</h2>
+                    <p class="text-xl md:text-2xl text-gray-200 mb-6 font-semibold">World’s First Untraceable, Over‑Collateralized Stablecoin</p>
+                    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+                        <p class="text-base md:text-lg text-gray-300">
+                            Leverages the proven Djed protocol mechanics wrapped in Monero’s robust privacy features.
+                        </p>
+                    </div>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="block text-center text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 4: Core Mechanism -->
+            <div class="slide" data-slide="4">
+                 <div class="slide-content p-6 md:p-12 bg-gray-800 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">Core Mechanism</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-green-300 mb-2">Djed Adaptation</h3>
+                            <p class="text-gray-300">Three core assets govern minting and redemption flows with transparent reserve rules.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-green-300 mb-2">Collateralization</h3>
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="bg-gray-700 p-4 rounded-lg flex-1">
+                                    <p class="text-2xl font-bold text-white">400%</p>
+                                    <p class="text-gray-400">Minimum reserve ratio ensures ample backing for stability.</p>
+                                </div>
+                                <div class="bg-gray-700 p-4 rounded-lg flex-1">
+                                    <p class="text-2xl font-bold text-white">800%</p>
+                                    <p class="text-gray-400">Maximum reserve ratio prevents dilution of reserve‑coin holders.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="block text-right text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 5: Native Assets -->
+            <div class="slide" data-slide="5">
+                <div class="slide-content p-6 md:p-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6 text-center">Native Assets</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-lg font-bold text-green-300">ZEPH (Base Coin)</h3>
+                            <p class="text-sm text-gray-400">Total supply: 18.4M (+0.6 ZEPH/block tail emission). RandomX PoW, 120s block time.</p>
+                        </div>
+                         <div class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-lg font-bold text-green-300">ZSD (ZephUSD Stable Dollar)</h3>
+                            <p class="text-sm text-gray-400">Over‑collateralized USD‑pegged stablecoin with Monero privacy.</p>
+                        </div>
+                         <div class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-lg font-bold text-green-300">ZRS (ZephRSV Reserve Share)</h3>
+                            <p class="text-sm text-gray-400">Reserve‑coin granting leveraged exposure and a share of transaction‑fee revenue.</p>
+                        </div>
+                         <div class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-lg font-bold text-green-300">ZYS (Zephyr Yield Share)</h3>
+                            <p class="text-sm text-gray-400">Yield‑share asset rewarding staked ZSD holders through the Yield Reserve.</p>
+                        </div>
+                    </div>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="block text-center text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 6: Privacy & Security -->
+            <div class="slide" data-slide="6">
+                <div class="slide-content p-6 md:p-12 bg-gray-800 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">Privacy & Security</h2>
+                    <ul class="space-y-4 text-gray-300 text-base md:text-lg">
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            <span><strong class="text-white">Ring Signatures</strong> obfuscate transaction origins by mixing user keys with decoys.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                             <svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <span><strong class="text-white">Bulletproofs</strong> hide amounts in zero‑knowledge proofs while optimizing transaction size.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                             <svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
+                            <span>Full anonymity preserved across all asset conversions on a single chain.</span>
+                        </li>
+                    </ul>
+                     <a href="https://zephyrprotocol.com" target="_blank" class="block text-right text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 7: Yield & Rewards -->
+            <div class="slide" data-slide="7">
+                <div class="slide-content p-6 md:p-12 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">Yield & Rewards</h2>
+                    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+                        <p class="text-lg text-gray-300">
+                            <strong>Yield Reserve</strong> holds staked ZSD plus accrued ZSD from the yield mechanism.
+                        </p>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center text-center mb-6">
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <p class="text-gray-400 text-sm">Current Yield Reserve</p>
+                            <p class="text-2xl font-bold text-white">$270,373.39</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <p class="text-gray-400 text-sm">Collateralization</p>
+                            <p class="text-2xl font-bold text-white">66.48%</p>
+                        </div>
+                    </div>
+                     <p class="text-lg text-gray-300">
+                        <strong>ZYS tokens</strong> distributed as rewards to stability providers and stakers.
+                    </p>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="block text-center text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 8: Integration & Tooling -->
+            <div class="slide" data-slide="8">
+                <div class="slide-content p-6 md:p-12 bg-gray-800 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">Integration & Tooling</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-green-300">Monero‑Compatible RPCs:</h3>
+                            <p class="text-gray-400">zephyrd daemon‑RPC & zephyr-wallet-rpc wallet‑RPC</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-green-300">Asset types:</h3>
+                            <p class="text-gray-400">ZPH, ZSD, ZRS, ZYS for seamless support.</p>
+                        </div>
+                         <div>
+                            <h3 class="text-xl font-semibold text-green-300">Developer Tools:</h3>
+                            <p class="text-gray-400">Web Wallet, Explorer, Mining Pools and SDKs for easy developer integration.</p>
+                        </div>
+                    </div>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="block text-right text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 9: Roadmap Highlights -->
+            <div class="slide" data-slide="9">
+                <div class="slide-content p-6 md:p-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6 text-center">Roadmap Highlights</h2>
+                    <div class="space-y-4 text-sm md:text-base">
+                        <div class="bg-gray-800 p-4 rounded-lg"><strong>Q1 2023:</strong> Mainnet launch, initial listings, whitepaper, Private v1 Testnet</div>
+                        <div class="bg-gray-800 p-4 rounded-lg"><strong>Q2 2023:</strong> Public v1 Testnet, GUI wallets, MEXC listing, branding</div>
+                        <div class="bg-gray-800 p-4 rounded-lg"><strong>Q3 2023:</strong> Joined Djed Alliance, V1 Hardfork, ZSD markets, Web Wallet</div>
+                        <div class="bg-gray-800 p-4 rounded-lg"><strong>Q4 2023:</strong> Extended Djed research, Oracle v2 design & development begins</div>
+                    </div>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="block text-center text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 10: Ecosystem & Partnerships -->
+            <div class="slide" data-slide="10">
+                <div class="slide-content p-6 md:p-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6 text-center">Ecosystem & Partnerships</h2>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-center text-green-300 mb-4">Exchange Listings</h3>
+                        <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+                            <img src="https://s2.coinmarketcap.com/static/img/exchanges/64x64/535.png" alt="MEXC" class="h-12 w-12 rounded-full bg-white p-1" onerror="this.onerror=null;this.src='https://placehold.co/64x64/ffffff/000000?text=MEXC';">
+                            <img src="https://tradeogre.com/favicon/favicon-32x32.png" alt="TradeOgre" class="h-12 w-12 rounded-full bg-white p-1" onerror="this.onerror=null;this.src='https://placehold.co/64x64/ffffff/000000?text=TradeOgre';">
+                            <img src="https://xeggex.com/favicon.ico" alt="XeggeX" class="h-12 w-12 rounded-full bg-white p-1" onerror="this.onerror=null;this.src='https://placehold.co/64x64/ffffff/000000?text=XeggeX';">
+                            <span class="text-gray-300">Seven Seas</span>
+                            <span class="text-gray-300">NonKYC.io</span>
+                            <span class="text-gray-300">SafeTrade</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-center text-green-300 mb-4">Alliance</h3>
+                        <p class="text-center text-gray-300">Member of the <strong>Djed Alliance</strong> advancing algorithmic stablecoin standards.</p>
+                    </div>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="block text-center text-green-400 mt-6 hover:underline">zephyrprotocol.com</a>
+                </div>
+            </div>
+
+            <!-- Slide 11: Get Involved -->
+            <div class="slide" data-slide="11">
+                <div class="slide-content p-6 md:p-12 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">Get Involved</h2>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-green-300 mb-4">Community Channels</h3>
+                        <div class="flex justify-center items-center gap-6">
+                            <a href="#" class="text-gray-400 hover:text-white">Discord</a>
+                            <a href="#" class="text-gray-400 hover:text-white">Telegram</a>
+                            <a href="#" class="text-gray-400 hover:text-white">X (Twitter)</a>
+                            <a href="#" class="text-gray-400 hover:text-white">Medium</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-300 mb-4">Resources</h3>
+                        <p class="text-gray-300">Whitepaper, blog posts, detailed documentation at:</p>
+                        <a href="https://zephyrprotocol.com/documentation" target="_blank" class="text-green-400 hover:underline">zephyrprotocol.com/documentation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Call to Action -->
+            <div class="slide" data-slide="12">
+                <div class="slide-content p-6 md:p-12 text-center bg-gray-800 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">Experience Private Digital Money</h2>
+                    <ul class="space-y-3 text-lg text-gray-300 mb-8">
+                        <li>Mint ZSD</li>
+                        <li>Stake for yield</li>
+                        <li>Become a reserve provider</li>
+                    </ul>
+                    <a href="https://zephyrprotocol.com" target="_blank" class="inline-block bg-green-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-green-400 transition-colors duration-300">
+                        Visit zephyrprotocol.com
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <div class="fixed bottom-0 left-0 right-0 bg-gray-900 bg-opacity-50 backdrop-blur-sm p-4">
+            <div class="max-w-4xl mx-auto flex items-center justify-between">
+                <button id="prev-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    Prev
+                </button>
+                <div id="slide-counter" class="text-gray-400 text-sm">1 / 12</div>
+                <button id="next-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                    Next
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- DOM Elements ---
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+
+            // --- State ---
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            // --- Functions ---
+
+            /**
+             * Shows a specific slide and hides others.
+             * @param {number} slideIndex - The index of the slide to show.
+             */
+            function showSlide(slideIndex) {
+                // Hide all slides first
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+
+                // Show the target slide
+                if (slides[slideIndex]) {
+                    slides[slideIndex].classList.add('active');
+                }
+                
+                // Update the slide counter display
+                updateCounter();
+                // Update the state of navigation buttons
+                updateNavButtons();
+            }
+
+            /**
+             * Updates the slide counter text.
+             */
+            function updateCounter() {
+                if (slideCounter) {
+                    slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+                }
+            }
+
+            /**
+             * Enables or disables navigation buttons based on the current slide index.
+             */
+            function updateNavButtons() {
+                if (prevBtn) {
+                    prevBtn.disabled = currentSlide === 0;
+                }
+                if (nextBtn) {
+                    // Change 'Next' to 'Finish' on the last slide
+                    if (currentSlide === totalSlides - 1) {
+                        nextBtn.textContent = 'Finish';
+                    } else {
+                        nextBtn.textContent = 'Next';
+                    }
+                }
+            }
+            
+            /**
+             * Navigates to the next slide.
+             */
+            function goToNextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            }
+
+            /**
+             * Navigates to the previous slide.
+             */
+            function goToPrevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            }
+
+            // --- Event Listeners ---
+            if (nextBtn) {
+                nextBtn.addEventListener('click', goToNextSlide);
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', goToPrevSlide);
+            }
+            
+            // Add keyboard navigation for accessibility
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    goToNextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    goToPrevSlide();
+                }
+            });
+
+            // --- Initialization ---
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
